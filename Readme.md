@@ -1,7 +1,7 @@
 # Личный проект «Кексобукинг»
 
 * Студент: [Andrei Lipa](https://up.htmlacademy.ru/javascript-individual/1/user/1520009).
-* Наставник: `Неизвестно`.
+* Наставник: `Evgenii Kazakov`.
 
 ---
 
