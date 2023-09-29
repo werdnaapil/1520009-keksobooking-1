@@ -47,11 +47,15 @@ window.console.log(isPalindrom('SaGas'));
 извлекает содержащиеся цифры и возвращает в виде целого положительного числа */
 
 function extractNumber(arg) {
-  const string = arg.toString(); //приводим пришедшие данные в строку записываем в новую переменную
-  let result = '';               //объявляем пустую переменную для записи результатов
-  for (let i = 0; i < string.length; i++) {  //заводим счетчик посчитаем длину строки посимвольно
-    if (!Number.isNaN(parseInt(string.at(i)), 10)) { //проверяем езультат parsInt является ли NaN
-      result += string.at(i);  //записываем результат проверки в переменную, если не равно Nan, если NaN то не запишется
+  const string = arg.toString();
+  //объявляем пустую переменную для записи результатов
+  let result = '';
+  //заводим счетчик посчитаем длину строки посимвольно
+  for (let i = 0; i < string.length; i++) {
+    //проверяем результат parsInt является ли NaN
+    if (!Number.isNaN(parseInt(string.at(i), 10))) {
+      //записываем результат проверки в переменную, если не равно Nan, если NaN то не запишется
+      result += string.at(i);
     }
   }
   return (parseInt(result, 10)); //возвращаем результат из строки в виде целых чисел в десятично исчислении
@@ -76,11 +80,11 @@ const myPadStart = (string, minLength, pad) => {
   const actualPad = minLength - string.length; //ищем разницу между мин длиной строки и заданной строкой
 
   if (actualPad <= 0) { //проверяем строку если она длиной меньше или = 0
-    return string;         //если да то прерываем выполнение и возвращаем строку в исходном состоянии
+    return string; //если да то прерываем выполнение и возвращаем строку в исходном состоянии
   }
-return pad.slice(0, actualPad % pad.length) + pad.repeat(actualPad
-  / pad.length) + string;
-}
+  return pad.slice(0, actualPad % pad.length) + pad.repeat(actualPad
+    / pad.length) + string;
+};
 //myPadStart('1', 2, '0');
 //myPadStart('1', 4, '0');
 //myPadStart('q', 4, 'werty');
@@ -89,15 +93,15 @@ myPadStart('qwerty', 4, '0');
 
 /* 4. Задание - Функция, возвращающая случайное число с плавающей точкой из переданного
 диапазона включительно */
-//Нужна твоя помощь:
-// Есть условие что числа должны быть положительными, не могу придумать как организовать
-//Как вернуть NaN если пришли некорректные данные
-//Настроить реакцию если буде указан диапазон так что первое число меньше второго
+/* Нужна твоя помощь:
+Есть условие что числа должны быть положительными, не могу придумать как организовать
+Как вернуть NaN если пришли некорректные данные
+Настроить реакцию если буде указан диапазон так что первое число меньше второго */
 
-  function getRandomInteger(min, max, decimals) {
-    // min = Math.ceil(min);
-    // max = Math.floor(max);
-    return Math.random() * ((max - min + 1) + min).toFixed(decimals);
+function getRandomInteger(min, max, decimals) {
+  // min = Math.ceil(min);
+  // max = Math.floor(max);
+  return Math.random() * ((max - min + 1) + min).toFixed(decimals);
 
-  }
-  getRandomInteger(0, 150);
+}
+getRandomInteger(0, 150);
