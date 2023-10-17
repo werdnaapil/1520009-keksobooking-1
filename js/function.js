@@ -9,13 +9,20 @@ function isPalindrom(string) {
   }
   return normalizedString === reversedString;
 }
-window.console.log(isPalindrom('Ро тор'));
-window.console.log(isPalindrom('Лёша на полке клопа нашёл'));
-window.console.log(isPalindrom('кекс'));
-window.console.log(isPalindrom('ДоВод'));
-window.console.log(isPalindrom('Deed'));
-window.console.log(isPalindrom('Пекарь'));
-window.console.log(isPalindrom('SaGas'));
+// eslint-disable-next-line
+console.log(isPalindrom('Ро тор'));
+// eslint-disable-next-line
+console.log(isPalindrom('Лёша на полке клопа нашёл'));
+// eslint-disable-next-line
+console.log(isPalindrom('кекс'));
+// eslint-disable-next-line
+console.log(isPalindrom('ДоВод'));
+// eslint-disable-next-line
+console.log(isPalindrom('Deed'));
+// eslint-disable-next-line
+console.log(isPalindrom('Пекарь'));
+// eslint-disable-next-line
+console.log(isPalindrom('SaGas'));
 //   let normalizedString = string          //объявляем новую переменную присваиваем значение строки
 //     .replaceAll(' ', '')                    //убираем пробелы, заменяем пробелы отсутствием расстояния
 //     .toLowerCase();                        //приводим предложение к нижнему регистру
@@ -86,4 +93,5 @@ function getRandomFloat(min, max, decimals) {
   return (Math.random() * (max - min) + min).toFixed(decimals);
 
 }
-window.console.log('getRandomFloat:', getRandomFloat(1.1, 1.2, 4));
+// eslint-disable-next-line
+console.log('getRandomFloat:', getRandomFloat(1.1, 1.2, 4));
