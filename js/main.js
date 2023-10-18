@@ -21,7 +21,7 @@ function getRandomFloat(min, max, decimals) {
   // min = Math.ceil(min);
   // max = Math.floor(max);
   return (Math.random() * (max - min) + min).toFixed(decimals);
-};
+}
 
 const DESCRIPTIONS = [
   'Стильный номер в формате лофт, здесь вы себя будете чувствовать как в современном музее',
@@ -107,7 +107,7 @@ const getRandomIdFromMassive = createRandomIdFromRangeMassive(1, 3);
 //создаем массив для описания отелей
 const places = () => ({
   author: {
-    avatar: 'img/avatars/user'${getRandomPositiveInteger(1, 10).padStart(1, '0')}.png',
+    avatar: `${`img/avatars/user${getRandomPositiveInteger(1, 10)}`.padStart(1, '0') }.png`,
   },
   offer: {
     title: getRandomArrayElement(TITLES),
@@ -125,7 +125,7 @@ const places = () => ({
   location: {
     lat: getRandomFloat(35.65000, 35.70000),
     lng: getRandomFloat(139.70000, 139.80000),
-  };
+  },
 });
 
 const getPlaces = Array.from ({length: 10}, places);
