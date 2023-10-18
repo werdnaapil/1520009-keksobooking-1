@@ -1,4 +1,4 @@
-
+// eslint-disable-next-line
 function isPalindrom(string) {
   const normalizedString = string
     .toLowerCase()
@@ -10,19 +10,19 @@ function isPalindrom(string) {
   return normalizedString === reversedString;
 }
 // eslint-disable-next-line
-console.log(isPalindrom('Ро тор'));
+//console.log(isPalindrom('Ро тор'));
 // eslint-disable-next-line
-console.log(isPalindrom('Лёша на полке клопа нашёл'));
+//console.log(isPalindrom('Лёша на полке клопа нашёл'));
 // eslint-disable-next-line
-console.log(isPalindrom('кекс'));
+//console.log(isPalindrom('кекс'));
 // eslint-disable-next-line
-console.log(isPalindrom('ДоВод'));
+//console.log(isPalindrom('ДоВод'));
 // eslint-disable-next-line
-console.log(isPalindrom('Deed'));
+//console.log(isPalindrom('Deed'));
 // eslint-disable-next-line
-console.log(isPalindrom('Пекарь'));
+//console.log(isPalindrom('Пекарь'));
 // eslint-disable-next-line
-console.log(isPalindrom('SaGas'));
+//console.log(isPalindrom('SaGas'));
 //   let normalizedString = string          //объявляем новую переменную присваиваем значение строки
 //     .replaceAll(' ', '')                    //убираем пробелы, заменяем пробелы отсутствием расстояния
 //     .toLowerCase();                        //приводим предложение к нижнему регистру
@@ -94,4 +94,4 @@ function getRandomFloat(min, max, decimals) {
 
 }
 // eslint-disable-next-line
-console.log('getRandomFloat:', getRandomFloat(1.1, 1.2, 4));
+//console.log('getRandomFloat:', getRandomFloat(1.1, 1.2, 4));
