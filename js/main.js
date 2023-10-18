@@ -6,9 +6,8 @@ const getRandomPositiveInteger = (a, b) => {
   return Math.floor(result);
 };
 //создаем функцию которая возвращает случайный эллемент массива
-const getRandomArrayElement = (elements) => [
-  elements[getRandomPositiveInteger(0, elements.length - 1)]
-];
+const getRandomArrayElement = (elements) => elements[getRandomPositiveInteger(0, elements.length - 1)];
+
 
 //создаем функцию для указания координат с плавающей точкой
 function getRandomFloat(min, max, decimals) {
@@ -27,7 +26,7 @@ const DESCRIPTIONS = [
   'Стильный номер в формате лофт, здесь вы себя будете чувствовать как в современном музее',
   'Наш отель расположен в удобом районе города в шаговой доступности от метро',
   'В наших номерах вы сможете расположиться с комфортом для себя и всей семьи',
-  'Гостинница имеет 3 звезды, мы создаем тепло и уют для наших гостуй',
+  'Гостинница имеет 3 звезды, мы создаем тепло и уют для наших гостей',
   'В номерах нашего отеля вы найдет всё необходимое для проживания',
   'У нас в отеле имеется спортзал и бассейн',
   'В наших номерах отличые виды из окна на реку и проплывающие по ней корабли',
@@ -81,55 +80,58 @@ const FEATURESNAMES = [
 ];
 
 //создаем функцию вывода данных из массива с проверкой на уникальность
-function createRandomIdFromRangeMassive (min, max) {
-  const previousValues = [];
+function shuffle(array) {
+  const newArray = [];
 
-  return function () {
-    let currentValue = getRandomPositiveInteger(min, max);
-    if (previousValues.length >= (max - min + 1)) {
-      // eslint-disable-next-line
-      console.error('Перебраны все числа из диапазона от ' + min + ' до ' + max);
-      return null;
+  while(newArray.length < array.length) {
+    const index = getRandomPositiveInteger(0, array.length - 1);
+    const element = array[index];
+    if (!newArray.includes(element)) {
+      newArray.push(element);
     }
-    while (previousValues.includes(currentValue)) {
-      currentValue = getRandomPositiveInteger(min, max);
-    }
-    previousValues.push(currentValue);
-    return currentValue;
-  };
+  }
+
+  return newArray;
 }
-const getRandomIdFromMassive = createRandomIdFromRangeMassive(1, 3);
+// const getRandomIdFromMassive = createRandomIdFromRangeMassive(1, 3);
+
+const getRandomArrayElements = (array) => array.slice(0, getRandomPositiveInteger(0, array.length - 1));
 
 // const SIMILAR_LAT_COUNT = (35.65000, 35.70000);
 // const SIMILAR_LNG_COUNT = (139.70000, 139.80000);
 // const SIMILAR_AVATAR_COUNT = (1, 10);
 
+
+// const num = getRandomPositiveInteger(1, 10);
+// const numStr = `${num}`.padStart(2, '0');
+// img/avatars/user/01.png
+// img/avatars/user/02.png
+
 //создаем массив для описания отелей
-const places = () => ({
+const places = (index) => ({
   author: {
-    avatar: `${`img/avatars/user${getRandomPositiveInteger(1, 10)}`.padStart(1, '0') }.png`,
+    avatar: `img/avatars/user${`${index}`.padStart(2, '0')}.png`,
   },
   offer: {
     title: getRandomArrayElement(TITLES),
-    address: getRandomFloat(35.65000, 35.70000),
+    address: getRandomFloat(35.65000, 35.70000, 5),
     price: getRandomPositiveInteger(900, 8000),
     type: getRandomArrayElement(TYPES),
     rooms: getRandomPositiveInteger(1, 4),
     guests: getRandomPositiveInteger(1, 8),
     checkin: getRandomArrayElement(CHECKTIME),
     checkout: getRandomArrayElement(CHECKTIME),
-    features: getRandomIdFromMassive(FEATURESNAMES),
+    features: getRandomArrayElements(shuffle(FEATURESNAMES)),
     description: getRandomArrayElement(DESCRIPTIONS),
     photos: getRandomArrayElement(PHOTOADDRESSES),
   },
   location: {
-    lat: getRandomFloat(35.65000, 35.70000),
-    lng: getRandomFloat(139.70000, 139.80000),
+    lat: getRandomFloat(35.65000, 35.70000, 5),
+    lng: getRandomFloat(139.70000, 139.80000, 5),
   },
 });
 
-const getPlaces = Array.from ({length: 10}, places);
+const getPlaces = () => Array.from({length: 10}, (_, index) => places(index + 1));
 
 // eslint-disable-next-line
- console.log(
-  getPlaces());
+ console.log(getPlaces());
