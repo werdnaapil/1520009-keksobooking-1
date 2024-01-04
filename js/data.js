@@ -12,16 +12,6 @@ const DESCRIPTIONS = [
 
 //создаем массив заголовков для объявлений
 const TITLES = [
-  'Просторная уютная студия',
-  'Двухместный номер с видом на море',
-  'Аппартаменты для двоих',
-  'Семейный номер с кухней',
-  'Одноместный номер стандарт',
-  'Номер с двухспальной кроватью и окном',
-  'Студия в центре города',
-  'Двухкомнатная квартира',
-  'Номер с балконом',
-  'Номер Люкс',
 ];
 
 //создаем массив для типов жилья
@@ -41,7 +31,7 @@ const CHECKTIME = [
 ];
 
 //создаем массив для строк с фото
-const PHOTOADDRESSES = [
+const PHOTOLINKS = [
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/duonguyen-8LrGtIxxa4w.jpg',
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/brandon-hoogenboom-SNxQGWxZQi0.jpg',
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/claire-rendall-b6kAwr1i0Iw.jpg',
@@ -57,6 +47,24 @@ const FEATURESNAMES = [
   'conditioner',
 ];
 
+//cjздаем массив с адресами
+const ADDRESSES = [
+  '102-0075 Tōkyō-to, Chiyoda-ku, Sanbanchō',
+  'Chiyoda-ku, Tōkyō-to 102-0082',
+  'Chiyoda-ku, Tōkyō-to 102-0091',
+  '102-0082 Tōkyō-to, Chiyoda-ku, Ichibanchō, 17−4',
+  '102-0081 Tōkyō-to, Chiyoda-ku, Yonbanchō, 5−6',
+  '102-0094 Tōkyō-to, Chiyoda-ku, Kioichō, 3',
+  '102-0080 Tōkyō-to, Chiyoda-ku, 14-7',
+  '105-0016 Tōkyō-to, Chiyoda-ku, 14-9',
+  '1-1 Chiyoda, Chiyoda-ku, Tōkyō-to 100-8111',
+  '105-0003 Tōkyō-to, Minato-ku, Nishishinbashi, 2 Chome−3',
+  '102-0081 Tōkyō-to, Chiyoda-ku, Yonbanchō, 5−6',
+  '105-0016 Tōkyō-to, Minato-ku',
+  '102-0082 Tōkyō-to, Chiyoda-ku, Ichibanchō, 14−3',
+  '105-0003 Tōkyō-to, Chiyoda-ku, Ichibanchō',
+];
+
 //создаем массив для описания отелей
 const places = (index) => ({
   author: {
@@ -65,7 +73,7 @@ const places = (index) => ({
   offer: {
     title: getRandomArrayElement(TITLES),
     address: getRandomFloat(35.65000, 35.70000, 5),
-    price: getRandomPositiveInteger(900, 8000),
+    price: getRandomArrayElement(ADDRESSES),
     type: getRandomArrayElement(TYPES),
     rooms: getRandomPositiveInteger(1, 4),
     guests: getRandomPositiveInteger(1, 8),
@@ -73,7 +81,7 @@ const places = (index) => ({
     checkout: getRandomArrayElement(CHECKTIME),
     features: getRandomArrayElements(shuffle(FEATURESNAMES)),
     description: getRandomArrayElement(DESCRIPTIONS),
-    photos: getRandomArrayElement(PHOTOADDRESSES),
+    photos: PHOTOLINKS, //getRandomArrayElement(PHOTOLINKS),
   },
   location: {
     lat: getRandomFloat(35.65000, 35.70000, 5),
